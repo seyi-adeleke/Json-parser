@@ -1,0 +1,26 @@
+body {
+    background-color:papayawhip;
+}
+
+.App__body {
+    display: flex;
+}
+
+.Source__body,
+.Output__body {
+    border: 2px solid whitesmoke;
+    background-color:white;
+    flex: 1;
+    padding: 10px;
+    height: 60vh;
+    margin-right: 5px;
+}
+
+.Output__body {
+}
+
+@media (max-width: 400px) {
+    .App__body {
+      display: block;
+    }
+  }
