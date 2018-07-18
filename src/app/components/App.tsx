@@ -18,10 +18,12 @@ export class App extends React.Component<{}, {}> {
       <div>
       <Title>JSON PARSER</Title>
       <hr/>
-        <div className={`${className}__body`}>
-            <Source />
-            <Output />
-        </div>
+        <React.Fragment>
+          <div className={`${className}__body`}>
+              <Source />
+              <Output />
+          </div>
+        </React.Fragment>
       </div>
         )
    }
