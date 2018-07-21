@@ -3,13 +3,7 @@ import styled from 'styled-components';
 import { Input } from './Input';
 import { Output } from './Output';
 import utils from '../utils';
-
-const Title = styled.h1`
-  font-size: 1.5em;
-  text-align: center;
-  color: palevioletred;
-`;
-
+import Title from './styledComponents/Title';
 
 const className: string = 'App';
 interface AppSatate {
