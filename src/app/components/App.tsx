@@ -1,7 +1,8 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { Source } from './Source';
+import { Input } from './Input';
 import { Output } from './Output';
+import utils from '../utils';
 
 const Title = styled.h1`
   font-size: 1.5em;
@@ -11,17 +12,36 @@ const Title = styled.h1`
 
 
 const className: string = 'App';
+interface AppSatate {
+  Output: any;
+}
 
-export class App extends React.Component<{}, {}> {
-   render() {
+export class App extends React.Component<{}, AppSatate> {
+  state = {
+    Output: '',
+  }
+
+
+  public handleInput = (inputData: string) => {
+    const outputData = utils.parseJson(inputData);
+    this.setState({
+      Output: outputData,
+    })
+  }
+
+  public render() {
      return (
       <div>
       <Title>JSON PARSER</Title>
       <hr/>
         <React.Fragment>
           <div className={`${className}__body`}>
-              <Source />
-              <Output />
+              <Input
+                inputData={this.handleInput}
+              />
+              <Output
+                OutputData={this.state.Output}
+              />
           </div>
         </React.Fragment>
       </div>
