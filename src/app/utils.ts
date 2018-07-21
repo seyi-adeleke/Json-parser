@@ -15,11 +15,11 @@ function parseJson(text: string) {
 
     arrayValues.map((value: any, index: number) => {
         if (value.parent_id !== null) {
-            const particluarOne: any = arrayValues.find((elem: any) => {
+            const child: any = arrayValues.find((elem: any) => {
                 return elem.id === value.parent_id
             })
-            particluarOne.children.push(value);
-            output.push(particluarOne);
+            child.children.push(value);
+            output.push(child);
         }
     });
 
