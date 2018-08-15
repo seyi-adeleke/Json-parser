@@ -27,9 +27,10 @@ export class Input extends React.Component<InputProps, InputState> {
     if(utils.isJSON(this.state.input)) {
       this.setState({
         validInputData: true,
+      }, () => {
+        this.props.inputData(this.state.input);
       })
-      this.props.inputData(this.state.input);
-    };
+    }
   }
 
   public handlePaste = (event: React.ClipboardEvent<HTMLTextAreaElement>) => {
@@ -37,8 +38,9 @@ export class Input extends React.Component<InputProps, InputState> {
     if (utils.isJSON(data)) {
       this.setState({
         validInputData: true,
+      }, () => {
+        this.props.inputData(data);
       })
-      this.props.inputData(data);
     }
   }
 
