@@ -6,11 +6,12 @@ import utils from '../utils';
 import Title from './styledComponents/Title';
 
 const className: string = 'App';
-interface AppSatate {
-  Output: any;
+interface AppState {
+  Output: string;
 }
 
-export class App extends React.Component<{}, AppSatate> {
+const TITLE:string  = 'JSON PARSER';
+export class App extends React.Component<{}, AppState> {
   state = {
     Output: '',
   }
@@ -26,7 +27,7 @@ export class App extends React.Component<{}, AppSatate> {
   public render() {
      return (
       <div>
-      <Title>JSON PARSER</Title>
+      <Title>{TITLE}</Title>
       <hr/>
         <React.Fragment>
           <div className={`${className}__body`}>
