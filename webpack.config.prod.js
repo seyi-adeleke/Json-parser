@@ -5,6 +5,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 
 module.exports = {
+    target: 'node',
     entry: {
         app: ['./src/app/App.tsx'],
         vendor: ['react', 'react-dom']
@@ -21,9 +22,10 @@ module.exports = {
         rules: [
             {
                 test: /\.(ts|tsx)$/,
-                loader: 'ts-loader'
+                loader: 'ts-loader',
+                exclude: /node_modules/,
             },
-            { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
+            { enforce: "pre", test: /\.js$/, loader: "source-map-loader",  exclude: /node_modules/ },
             {
                 test: /\.scss$/,
                 use: [
