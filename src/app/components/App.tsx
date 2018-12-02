@@ -3,19 +3,19 @@ import styled from 'styled-components';
 import { Input } from './Input';
 import { Output } from './Output';
 import utils from '../utils';
-import Title from './styledComponents/Title';
 
 const className: string = 'App';
+
 interface AppState {
   Output: string;
 }
 
 const TITLE:string  = 'JSON PARSER';
-export class App extends React.Component<{}, AppState> {
+
+export default class App extends React.Component<{}, AppState> {
   state = {
     Output: '',
   }
-
 
   public handleInput = (inputData: string) => {
     const outputData = utils.parseJson(inputData);
@@ -26,20 +26,18 @@ export class App extends React.Component<{}, AppState> {
 
   public render() {
      return (
-      <div>
-      <Title>{TITLE}</Title>
-      <hr/>
-        <React.Fragment>
-          <div className={`${className}__body`}>
-              <Input
-                inputData={this.handleInput}
-              />
-              <Output
-                OutputData={this.state.Output}
-              />
-          </div>
-        </React.Fragment>
-      </div>
+      <React.Fragment>
+        <h1>{TITLE}</h1>
+        <hr/>
+        <div className={`${className}__body`}>
+            <Input
+              inputData={this.handleInput}
+            />
+            <Output
+              OutputData={this.state.Output}
+            />
+        </div>
+      </React.Fragment>
         )
    }
 }
