@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import Title from './styledComponents/Title';
+// import Title from './styledComponents/Title';
 import utils from '../utils';
 
 const className: string = 'Input';
@@ -34,6 +34,7 @@ export class Input extends React.Component<InputProps, InputState> {
   }
 
   public handlePaste = (event: React.ClipboardEvent<HTMLTextAreaElement>) => {
+    console.log(event);
    const data: string = event.clipboardData.getData('Text');
     if (utils.isJSON(data)) {
       this.setState({
@@ -47,7 +48,7 @@ export class Input extends React.Component<InputProps, InputState> {
   public render() {
      return (
       <div className={`${className}__body`}>
-          <Title>Input</Title>
+          <h1>Input</h1>
           <textarea
               rows={40}
               cols={100}

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Title from './styledComponents/Title';
+// import Title from './styledComponents/Title';
 
 const className: string = 'Output';
 
@@ -13,10 +13,11 @@ export class Output extends React.Component<OutputProps, {}> {
    render() {
      return (
       <div className={`${className}__body`}>
-          <Title>Output</Title>
+          <h1>Output</h1>
           <textarea
               rows={40}
               cols={100}
+              readOnly
               value={this.props.OutputData}
               />
       </div>

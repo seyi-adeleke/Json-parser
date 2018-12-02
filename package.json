@@ -4,32 +4,60 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --coverage",
     "build:dev": "NODE_ENV=development ./node_modules/.bin/webpack --config webpack.config.js",
     "build": "./node_modules/.bin/webpack --config webpack.config.prod.js --mode production",
     "start:dev": "npm run build:dev && NODE_ENV=development node server.js",
     "start": "NODE_ENV=production npm run build && node server.js"
   },
   "keywords": [],
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "/__tests__/.*\\.(ts|tsx|js)$",
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}"
+    ]
+  },
   "author": "Seyi Adeleke",
   "license": "ISC",
   "dependencies": {
+    "@types/styled-components": "^4.1.2",
     "express": "^4.16.3",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
+    "jest-styled-components": "^6.3.1",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
     "styled-components": "^3.3.3",
-    "typescript": "^2.9.2"
+    "typescript": "^3.1.6"
   },
   "devDependencies": {
-    "@types/react": "^16.4.6",
-    "@types/react-dom": "^16.0.6",
+    "@types/enzyme": "^3.1.15",
+    "@types/enzyme-adapter-react-16": "^1.0.3",
+    "@types/jest": "^23.3.9",
+    "@types/react": "^16.7.11",
+    "@types/react-dom": "^16.0.11",
     "css-loader": "^1.0.0",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.7.0",
+    "enzyme-to-json": "^3.3.4",
     "html-webpack-plugin": "^3.2.0",
+    "jest": "^23.6.0",
     "node-sass": "^4.9.2",
     "optimize-css-assets-webpack-plugin": "^5.0.0",
+    "react-test-renderer": "^16.6.3",
     "sass-loader": "^7.0.3",
     "source-map-loader": "^0.2.3",
     "style-loader": "^0.21.0",
+    "ts-jest": "^23.10.5",
     "ts-loader": "^4.4.2",
     "uglifyjs-webpack-plugin": "^1.2.7",
     "webpack": "^4.16.0",
