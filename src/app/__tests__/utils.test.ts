@@ -9,7 +9,7 @@ describe('utils', () => {
         expect(utils.isJSON('refvgewdfvre')).toBe(false);
     });
 
-    it('isJson() returns true when you pass invalid json', () => {
+    it('isJson() returns true when you pass in valid json', () => {
         expect(utils.isJSON(validJson)).toBe(true);
     });
     
